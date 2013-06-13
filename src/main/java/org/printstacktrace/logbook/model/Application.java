@@ -12,8 +12,10 @@ import org.printstacktrace.logbook.model.Server;
 import java.util.Set;
 import java.util.HashSet;
 import javax.persistence.ManyToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
 public class Application implements Serializable
 {
 

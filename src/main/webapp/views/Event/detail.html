@@ -1,0 +1,31 @@
+<form id="EventForm" name="EventForm" class="form-horizontal">
+    <div ng-show="displayError" class="alert alert-error">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    <div class="control-group" ng-class="{error: EventForm.name.$invalid}">
+        <label for="name" class="control-label">Name</label>
+        <div id="nameControls" class="controls">
+            <input id="name" name="name" type="text" ng-model="event.name" placeholder="Enter the Event Name"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: EventForm.start.$invalid}">
+        <label for="start" class="control-label">Start</label>
+        <div id="startControls" class="controls">
+            <input id="start" name="start" type="datetime" required ng-model="event.start" placeholder="Enter the Event Start"></input>
+            <span class="help-inline" ng-show="EventForm.start.$error.required">required</span> 
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: EventForm.end.$invalid}">
+        <label for="end" class="control-label">End</label>
+        <div id="endControls" class="controls">
+            <input id="end" name="end" type="datetime" ng-model="event.end" placeholder="Enter the Event End"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button id="saveEvent" name="saveEvent" class="btn btn-primary" ng-disabled="isClean() || EventForm.$invalid" ng-click="save()"><i class="icon-ok-sign icon-white"></i> Save</button>
+            <button id="cancel" name="cancel" class="btn" ng-click="cancel()"><i class="icon-remove-sign"></i> Cancel</button>
+            <button id="deleteEvent" name="deleteEvent" class="btn btn-danger" ng-show="event.id" ng-click="remove()"><i class="icon-trash icon-white"></i> Delete</button>
+        </div>
+    <div>
+</form>

@@ -1,0 +1,24 @@
+<form id="ServerForm" name="ServerForm" class="form-horizontal">
+    <div ng-show="displayError" class="alert alert-error">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    <div class="control-group" ng-class="{error: ServerForm.name.$invalid}">
+        <label for="name" class="control-label">Name</label>
+        <div id="nameControls" class="controls">
+            <input id="name" name="name" type="text" ng-model="server.name" placeholder="Enter the Server Name"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ServerForm.description.$invalid}">
+        <label for="description" class="control-label">Description</label>
+        <div id="descriptionControls" class="controls">
+            <input id="description" name="description" type="text" ng-model="server.description" placeholder="Enter the Server Description"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button id="saveServer" name="saveServer" class="btn btn-primary" ng-disabled="isClean() || ServerForm.$invalid" ng-click="save()"><i class="icon-ok-sign icon-white"></i> Save</button>
+            <button id="cancel" name="cancel" class="btn" ng-click="cancel()"><i class="icon-remove-sign"></i> Cancel</button>
+            <button id="deleteServer" name="deleteServer" class="btn btn-danger" ng-show="server.id" ng-click="remove()"><i class="icon-trash icon-white"></i> Delete</button>
+        </div>
+    <div>
+</form>
